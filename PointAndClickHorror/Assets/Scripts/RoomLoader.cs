@@ -23,6 +23,13 @@ public class RoomLoader : MonoBehaviour
 		{
 			Debug.LogError("RoomHolderTransform needs to be set!!!");
 		}
+
+		Signals.Get<RoomSignals.LoadRoom>().AddListener(LoadRoom);
+	}
+
+	private void OnDestroy()
+	{
+		Signals.Get<RoomSignals.LoadRoom>().RemoveListener(LoadRoom);
 	}
 
 	// Start is called before the first frame update
