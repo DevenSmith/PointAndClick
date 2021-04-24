@@ -21,6 +21,18 @@ public class TextHandler : MonoBehaviour
 	[SerializeField]
 	private bool testDisplay = false;
 
+	public void Awake()
+	{
+		Signals.Get<TextHandlerSignals.DisplayTextSignal>().AddListener(DisplayText);
+		Signals.Get<TextHandlerSignals.DisplayTextImmediateSignal>().AddListener(DisplayTextImmediate);
+	}
+
+	public void OnDestroy()
+	{
+		Signals.Get<TextHandlerSignals.DisplayTextSignal>().RemoveListener(DisplayText);
+		Signals.Get<TextHandlerSignals.DisplayTextImmediateSignal>().RemoveListener(DisplayTextImmediate);
+	}
+
 	public void DisplayTextImmediate(string text)
 	{
 		textToDisplay = text;

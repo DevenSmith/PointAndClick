@@ -521,6 +521,7 @@ GameObject:
   - component: {fileID: 1470148090}
   - component: {fileID: 1470148092}
   - component: {fileID: 1470148091}
+  - component: {fileID: 1470148093}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -644,3 +645,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470148089}
   m_CullTransparentMesh: 1
+--- !u!114 &1470148093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470148089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ecca8b4e779e1344b4fb932bf94eb3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charactersPerSecond: 40
+  textField: {fileID: 1470148091}
+  textToDisplay: Testing the text display feature just going to type a bunch of stuff
+    and see how it goes. \n\nLets see if a line break works in this thing
+  testDisplay: 0
