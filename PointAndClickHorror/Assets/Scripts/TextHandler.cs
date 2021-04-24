@@ -16,10 +16,10 @@ public class TextHandler : MonoBehaviour
 
 	private List<string> textsToDisplay = new List<string>();
 
-	private bool displayingText = false;
-
 	[SerializeField]
 	private bool testDisplay = false;
+
+	private Coroutine currentDisplayRoutine = null;
 
 	public void Awake()
 	{
@@ -33,21 +33,31 @@ public class TextHandler : MonoBehaviour
 		Signals.Get<TextHandlerSignals.DisplayTextImmediateSignal>().RemoveListener(DisplayTextImmediate);
 	}
 
+	public void DisplayCurrentTextImmediately()
+	{
+		if(currentDisplayRoutine != null)
+		{
+			StopCoroutine(currentDisplayRoutine);
+		}
+
+		DisplayTextImmediate(textToDisplay);
+	}
+
 	public void DisplayTextImmediate(string text)
 	{
 		textToDisplay = text;
-		textField.text = text;
+		textToDisplay = textToDisplay.Replace("\\n", "\n");
+		textField.text = textToDisplay;
 	}
 
 	public void DisplayText(string text)
 	{
 		textToDisplay = text;
-		StartCoroutine(DisplayTextRoutine(text));
+		currentDisplayRoutine = StartCoroutine(DisplayTextRoutine(text));
 	}
 
 	private IEnumerator DisplayTextRoutine(string text)
 	{
-		displayingText = true;
 		float stringIndex = 0.0f;
 
 		string displayString = "";
@@ -60,7 +70,7 @@ public class TextHandler : MonoBehaviour
 			textField.text = displayString;
 			yield return new WaitForEndOfFrame();
 		}
-		displayingText = false;
+		currentDisplayRoutine = null;
 		yield return null;
 	}
 
