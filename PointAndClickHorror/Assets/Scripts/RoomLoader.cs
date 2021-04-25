@@ -40,12 +40,17 @@ public class RoomLoader : MonoBehaviour
 
 	public void LoadRoom(RoomSO newRoom)
 	{
+		RoomSO previousRoom = currentRoomObject.GetComponent<RoomController>().roomSO;
 		if(currentRoomObject != null)
 		{
 			Destroy(currentRoomObject);
 		}
 
-		Instantiate(newRoom.roomPrefab, roomHolderTransform);
+		GameObject roomObj = Instantiate(newRoom.roomPrefab, roomHolderTransform);
+
+		//RoomController roomController = roomObj.GetComponent<RoomController>();
+		
+
 		Signals.Get<TextHandlerSignals.DisplayTextSignal>().Dispatch(newRoom.roomDescription);
 	}
 }

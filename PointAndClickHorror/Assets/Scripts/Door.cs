@@ -22,6 +22,11 @@ public class Door : Interactable
 		SetConfirmDenyListeners();
 	}
 
+	public void SetRoomToLoad(RoomSO room)
+	{
+		roomToLoad = room;
+	}
+
 	private void SetConfirmDenyListeners()
 	{
 		Signals.Get<GameSignals.confirmSelection>().AddListener(DoorOpened);
