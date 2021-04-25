@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class RoomSignals 
 {
+	public class LoadDefaultRoom : ASignal { };
 	public class LoadRoom : ASignal<RoomSO> { };
 }

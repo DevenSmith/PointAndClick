@@ -25,24 +25,28 @@ public class RoomLoader : MonoBehaviour
 		}
 
 		Signals.Get<RoomSignals.LoadRoom>().AddListener(LoadRoom);
+		Signals.Get<RoomSignals.LoadDefaultRoom>().AddListener(LoadDefaultRoom);
 	}
 
 	private void OnDestroy()
 	{
 		Signals.Get<RoomSignals.LoadRoom>().RemoveListener(LoadRoom);
+		Signals.Get<RoomSignals.LoadDefaultRoom>().RemoveListener(LoadDefaultRoom);
 	}
 
 	// Start is called before the first frame update
-	void Start()
+	private void LoadDefaultRoom()
     {
+		Signals.Get<RoomSignals.LoadDefaultRoom>().RemoveListener(LoadDefaultRoom);
 		LoadRoom(defaultRoom);
     }
 
 	public void LoadRoom(RoomSO newRoom)
 	{
-		RoomSO previousRoom = currentRoomObject.GetComponent<RoomController>().roomSO;
+		RoomSO previousRoom = null;
 		if(currentRoomObject != null)
 		{
+			previousRoom = currentRoomObject.GetComponent<RoomController>().roomSO;
 			Destroy(currentRoomObject);
 		}
 

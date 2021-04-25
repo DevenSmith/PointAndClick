@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Door : Interactable
 {
@@ -10,12 +11,19 @@ public class Door : Interactable
 	[SerializeField]
 	private string doorDescription;
 
+	public new void Awake()
+	{
+		base.Awake();
+		button.onClick.AddListener(DoorClicked);
+	}
+
 	public new void OnDestroy()
 	{
 		RemoveConfirmDenyListeners();
+		button.onClick.RemoveListener(DoorClicked);
 	}
 
-	public void OnMouseDown()
+	public void DoorClicked()
 	{
 		Signals.Get<GameSignals.openConfirmDeny>().Dispatch();
 		Signals.Get<TextHandlerSignals.DisplayTextSignal>().Dispatch(doorDescription);

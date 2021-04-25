@@ -12,8 +12,8 @@ public class MansionBuilder : MonoBehaviour
 
 	public void Start()
 	{
-		sideRooms = Utilities.ShuffleList(sideRooms);
-		items = Utilities.ShuffleList(items);
+		Utilities.ShuffleList(sideRooms);
+		Utilities.ShuffleList(items);
 
 		for(int i = 0; i < hallFloors.Count; i++)
 		{
@@ -21,9 +21,9 @@ public class MansionBuilder : MonoBehaviour
 			{
 				RoomSO sideRoom = sideRooms[0];
 				hallFloors[i].connectedRooms.Add(sideRoom);
-				sideRoom.roomItem = items[0];
+				//sideRoom.roomItem = items[0];
 				sideRoom.connectedRooms.Add(hallFloors[i]);
-				items.RemoveAt(0);
+				//items.RemoveAt(0);
 				sideRooms.RemoveAt(0);
 
 				if (sideRooms.Count == 0)
@@ -37,6 +37,8 @@ public class MansionBuilder : MonoBehaviour
 				break;
 			}
 		}
+
+		Signals.Get<RoomSignals.LoadDefaultRoom>().Dispatch();
 	}
 
 }

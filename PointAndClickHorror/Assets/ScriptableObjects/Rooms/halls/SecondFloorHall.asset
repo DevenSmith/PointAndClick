@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SecondFloorHall
   m_EditorClassIdentifier: 
   isAHall: 0
-  roomsToConnect: 1
+  roomsToConnect: 6
   connectedRooms: []
   roomPrefab: {fileID: 7792914289099720377, guid: 4f54171bb3017a24baf6777d1053b840,
     type: 3}

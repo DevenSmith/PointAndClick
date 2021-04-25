@@ -1464,3 +1464,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510795336}
   m_CullTransparentMesh: 1
+--- !u!1 &2064260701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2064260703}
+  - component: {fileID: 2064260702}
+  m_Layer: 0
+  m_Name: MansionBuilder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2064260702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064260701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2a690761a75616488cc5ec55b9b47d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sideRooms:
+  - {fileID: 11400000, guid: 5f0cd2b59701d2c4d88f823a33442c65, type: 2}
+  - {fileID: 11400000, guid: 70f46262aed654146b45498893192d12, type: 2}
+  - {fileID: 11400000, guid: 04b594ccceb1ceb4b94749eb5c308b00, type: 2}
+  - {fileID: 11400000, guid: cd07595f37ddbbf47aefa8187cc996c9, type: 2}
+  - {fileID: 11400000, guid: 5716d8ce351847a4aa8ed7b9470be95c, type: 2}
+  - {fileID: 11400000, guid: e4713b277dc10d64eac655b193ddedac, type: 2}
+  - {fileID: 11400000, guid: e2cd1071784f2e747acf407c5a842436, type: 2}
+  - {fileID: 11400000, guid: 99958721a32693b42b21cb14b162eb7a, type: 2}
+  - {fileID: 11400000, guid: b6816efd51e73ac4da06d6f6ea4baf34, type: 2}
+  - {fileID: 11400000, guid: bd3c010174a18ac4fbc7306832dacce5, type: 2}
+  - {fileID: 11400000, guid: 0367e1a24d5985940b666139ab157139, type: 2}
+  - {fileID: 11400000, guid: 707a29218fd29fc4f9d6c4574623e494, type: 2}
+  hallFloors:
+  - {fileID: 11400000, guid: 18c4e3d131cc2ad458690fd739c99e21, type: 2}
+  - {fileID: 11400000, guid: ffb538ca06dc2e345a58899406c6acb6, type: 2}
+  items:
+  - {fileID: 11400000, guid: 90ab32869abd09541b66d37659be9358, type: 2}
+--- !u!4 &2064260703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064260701}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.669716, y: -2.7369297, z: -14.451965}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

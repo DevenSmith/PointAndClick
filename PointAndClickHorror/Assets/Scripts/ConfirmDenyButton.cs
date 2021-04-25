@@ -30,13 +30,13 @@ public class ConfirmDenyButton : MonoBehaviour
 
 	public void ConfirmClicked()
 	{
-		Signals.Get<GameSignals.confirmSelection>();
+		Signals.Get<GameSignals.confirmSelection>().Dispatch();
 		HideConfirmDeny();
 	}
 
 	public void DenyClicked()
 	{
-		Signals.Get<GameSignals.denySelection>();
+		Signals.Get<GameSignals.denySelection>().Dispatch();
 		HideConfirmDeny();
 	}
 }

@@ -1,24 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour
 {
-	[SerializeField]
-	private Collider2D interactableCollider;
+	public Button button;
 
 	public void Awake()
 	{
-		if (interactableCollider == null)
-		{
-			interactableCollider = GetComponent<Collider2D>();
-
-			if (interactableCollider == null)
-			{
-				Debug.LogError(name + " doesn't have a collider for its interactable!");
-			}
-		}
-		
 		Signals.Get<GameSignals.openConfirmDeny>().AddListener(OnConfirmDenyOpened);
 		Signals.Get<GameSignals.closeConfirmDeny>().AddListener(OnConfirmDenyClosed);
 	}
@@ -31,11 +21,11 @@ public class Interactable : MonoBehaviour
 
 	public void OnConfirmDenyOpened()
 	{
-		interactableCollider.enabled = false;
+		button.interactable = false;
 	}
 
 	public void OnConfirmDenyClosed()
 	{
-		interactableCollider.enabled = true;
+		button.interactable = true;
 	}
 }
