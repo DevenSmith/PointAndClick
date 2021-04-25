@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cfd6f8bf1fec9a49ab29c622eaba111, type: 3}
+  m_Name: Library
+  m_EditorClassIdentifier: 
+  isAHall: 0
+  roomsToConnect: 0
+  connectedRooms: []
+  roomPrefab: {fileID: 7792914289099720377, guid: 32aced3ec503d1648870ad50574d1a8b,
+    type: 3}
+  roomItem: {fileID: 0}
+  roomDescription: 'The "Dining Room" '

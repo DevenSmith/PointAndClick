@@ -149,9 +149,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7792914289099720376}
-  - component: {fileID: -367507287452661898}
+  - component: {fileID: -2892086812960209872}
   m_Layer: 5
-  m_Name: MasterBathroom
+  m_Name: GuestBathroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +178,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-367507287452661898
+--- !u!114 &-2892086812960209872
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,8 +190,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f726998ce20e14a92d5626331a1fdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomSO: {fileID: 0}
-  doors: []
+  roomSO: {fileID: 11400000, guid: 5716d8ce351847a4aa8ed7b9470be95c, type: 2}
+  doors:
+  - {fileID: 1400119442191846109}
 --- !u!1 &7792914289454602192
 GameObject:
   m_ObjectHideFlags: 0
