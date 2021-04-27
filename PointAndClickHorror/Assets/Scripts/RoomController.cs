@@ -8,17 +8,16 @@ public class RoomController : MonoBehaviour
 
     public List<Door> doors = new List<Door>();
 
-    public void OnAwake()
+    public void Awake()
 	{
         if(roomSO.connectedRooms.Count != doors.Count)
 		{
 			Debug.LogError("The number of rooms and doors are not equal!!!");
 		}
 
-		for(int i = 0; i < doors.Count; i++)
+		foreach(Door door in doors)
 		{
-			doors[i].SetRoomToLoad(roomSO.connectedRooms[i]);
+			door.CurrentRoom = roomSO;
 		}
-
 	}
 }

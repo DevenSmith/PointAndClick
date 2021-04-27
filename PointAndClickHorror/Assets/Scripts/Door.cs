@@ -5,8 +5,21 @@ using UnityEngine.UI;
 
 public class Door : Interactable
 {
+	private RoomSO currentRoom;
+
+	public RoomSO CurrentRoom
+	{
+		set
+		{
+			currentRoom = value;
+		}
+	}
+
 	[SerializeField]
 	private RoomSO roomToLoad;
+
+	[SerializeField]
+	private int doorIndex = 0;
 
 	[SerializeField]
 	private string doorDescription;
@@ -30,11 +43,6 @@ public class Door : Interactable
 		SetConfirmDenyListeners();
 	}
 
-	public void SetRoomToLoad(RoomSO room)
-	{
-		roomToLoad = room;
-	}
-
 	private void SetConfirmDenyListeners()
 	{
 		Signals.Get<GameSignals.confirmSelection>().AddListener(DoorOpened);
@@ -49,7 +57,14 @@ public class Door : Interactable
 
 	private void DoorOpened()
 	{
-		Signals.Get<RoomSignals.LoadRoom>().Dispatch(roomToLoad);
+		if (roomToLoad == null)
+		{
+			Signals.Get<RoomSignals.LoadRoom>().Dispatch(currentRoom.connectedRooms[doorIndex]);
+		}
+		else
+		{
+			Signals.Get<RoomSignals.LoadRoom>().Dispatch(roomToLoad);
+		}
 	}
 
 }

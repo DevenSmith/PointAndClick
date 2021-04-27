@@ -9,6 +9,11 @@ public class MansionBuilder : MonoBehaviour
 
 	public List<ItemSO> items = new List<ItemSO>();
 
+	public void Awake()
+	{
+		ResetRooms();
+	}
+
 
 	public void Start()
 	{
@@ -22,6 +27,7 @@ public class MansionBuilder : MonoBehaviour
 				RoomSO sideRoom = sideRooms[0];
 				hallFloors[i].connectedRooms.Add(sideRoom);
 				//sideRoom.roomItem = items[0];
+				sideRoom.connectedRooms.Clear();
 				sideRoom.connectedRooms.Add(hallFloors[i]);
 				//items.RemoveAt(0);
 				sideRooms.RemoveAt(0);
@@ -41,5 +47,17 @@ public class MansionBuilder : MonoBehaviour
 		Signals.Get<RoomSignals.LoadDefaultRoom>().Dispatch();
 	}
 
+	public void ResetRooms()
+	{
+		foreach (RoomSO hall in hallFloors)
+		{
+			hall.connectedRooms.Clear();
+		}
+
+		foreach (RoomSO sideRoom in sideRooms)
+		{
+			sideRoom.connectedRooms.Clear();
+		}
+	}
 }
 

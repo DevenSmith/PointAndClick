@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 420060210388798462}
   roomToLoad: {fileID: 0}
+  doorIndex: 4
   doorDescription: Left Door 3
 --- !u!114 &420060210388798462
 MonoBehaviour:
@@ -227,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 1215960537886936303}
   roomToLoad: {fileID: 0}
+  doorIndex: 5
   doorDescription: Right Door 3
 --- !u!114 &1215960537886936303
 MonoBehaviour:
@@ -363,6 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 6185611647253816517}
   roomToLoad: {fileID: 0}
+  doorIndex: 2
   doorDescription: Left Door 2
 --- !u!114 &6185611647253816517
 MonoBehaviour:
@@ -499,6 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 3069172414984690951}
   roomToLoad: {fileID: 0}
+  doorIndex: 0
   doorDescription: Left Door 1
 --- !u!114 &3069172414984690951
 MonoBehaviour:
@@ -635,6 +639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 6509562704520205670}
   roomToLoad: {fileID: 0}
+  doorIndex: 1
   doorDescription: Right Door 1
 --- !u!114 &6509562704520205670
 MonoBehaviour:
@@ -771,6 +776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 6419833553568546092}
   roomToLoad: {fileID: 11400000, guid: ffb538ca06dc2e345a58899406c6acb6, type: 2}
+  doorIndex: -1
   doorDescription: Staircase to Second Floor
 --- !u!114 &6419833553568546092
 MonoBehaviour:
@@ -907,6 +913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 4868554273911791198}
   roomToLoad: {fileID: 0}
+  doorIndex: 3
   doorDescription: Right Door 2
 --- !u!114 &4868554273911791198
 MonoBehaviour:
@@ -1043,6 +1050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 6333626427963658273}
   roomToLoad: {fileID: 11400000, guid: ffb538ca06dc2e345a58899406c6acb6, type: 2}
+  doorIndex: -1
   doorDescription: Staircase to Second Floor
 --- !u!114 &6333626427963658273
 MonoBehaviour:
@@ -1179,6 +1187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 6048361242268968393}
   roomToLoad: {fileID: 0}
+  doorIndex: -1
   doorDescription: The Main Door
 --- !u!114 &6048361242268968393
 MonoBehaviour:
@@ -1274,7 +1283,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomSO: {fileID: 11400000, guid: 18c4e3d131cc2ad458690fd739c99e21, type: 2}
-  doors: []
+  doors:
+  - {fileID: 1116372224830015035}
+  - {fileID: 2792848420474264048}
+  - {fileID: 7803454791019676222}
+  - {fileID: 493984360326532237}
+  - {fileID: 6871062090177874837}
+  - {fileID: 8361020320503729850}
 --- !u!1 &7792914289454602192
 GameObject:
   m_ObjectHideFlags: 0
