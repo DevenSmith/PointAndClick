@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAHall: 0
   roomsToConnect: 0
-  connectedRooms: []
-  roomPrefab: {fileID: 7792914289099720377, guid: 32aced3ec503d1648870ad50574d1a8b,
+  connectedRooms:
+  - {fileID: 11400000, guid: 18c4e3d131cc2ad458690fd739c99e21, type: 2}
+  roomPrefab: {fileID: 7792914289099720377, guid: 2f576109af476894bb7b8f3d636847b1,
     type: 3}
   roomItem: {fileID: 0}
   roomDescription: 'The "Guest Bedroom" '
