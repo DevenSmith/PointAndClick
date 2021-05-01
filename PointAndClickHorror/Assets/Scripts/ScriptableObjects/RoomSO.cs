@@ -9,8 +9,10 @@ public class RoomSO : ScriptableObject
 	public int roomsToConnect = 0;
 	public List<RoomSO> connectedRooms = new List<RoomSO>();
 	public GameObject roomPrefab;
-	public ItemSO roomItem;
 
 	//todo: consider switching this to reading from a file if the project expands
 	public string roomDescription = "This room needs a description!";
+
+	public List<ItemSO> propItems = new List<ItemSO>();
+	public RoomController roomController;
 }
