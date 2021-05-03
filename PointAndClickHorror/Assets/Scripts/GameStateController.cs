@@ -11,12 +11,18 @@ public class GameStateController : MonoBehaviour
 	{
 		Signals.Get<GameStateSignals.PlayerAquiredItem>().AddListener(PlayerAquiredItem);
 		Signals.Get<GameStateSignals.SetMansionBuiltState>().AddListener(SetMansionBuiltState);
+		Signals.Get<GameStateSignals.RequestMansionBuiltState>().AddListener(MansionStateRequested);
+		Signals.Get<GameStateSignals.RequestDoesPlayerHaveItem>().AddListener(DoesPlayerHaveItem);
+		Signals.Get<GameStateSignals.RequestGameState>().AddListener(GameStateRequested);
 	}
 
 	public void OnDestroy()
 	{
 		Signals.Get<GameStateSignals.PlayerAquiredItem>().RemoveListener(PlayerAquiredItem);
 		Signals.Get<GameStateSignals.SetMansionBuiltState>().RemoveListener(SetMansionBuiltState);
+		Signals.Get<GameStateSignals.RequestMansionBuiltState>().RemoveListener(MansionStateRequested);
+		Signals.Get<GameStateSignals.RequestDoesPlayerHaveItem>().RemoveListener(DoesPlayerHaveItem);
+		Signals.Get<GameStateSignals.RequestGameState>().RemoveListener(GameStateRequested);
 	}
 
 	private void PlayerAquiredItem(ItemSO aquiredItem)
@@ -34,5 +40,20 @@ public class GameStateController : MonoBehaviour
 	private void SetMansionBuiltState(bool state)
 	{
 		gameState.mansionBuilt = state;
+	}
+
+	private void GameStateRequested()
+	{
+		Signals.Get<GameStateSignals.SendGameState>().Dispatch(gameState);
+	}
+
+	private void DoesPlayerHaveItem(ItemSO item)
+	{
+		Signals.Get<GameStateSignals.SendDoesPlayerHaveItemState>().Dispatch(gameState.playerInventory.Contains(item));
+	}
+
+	private void MansionStateRequested()
+	{
+		Signals.Get<GameStateSignals.SendMansionBuiltState>().Dispatch(gameState.mansionBuilt);
 	}
 }
