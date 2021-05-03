@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.24847308, y: 0.17267756}
   m_AnchorMax: {x: 0.31126347, y: 0.39212924}
-  m_AnchoredPosition: {x: 2.419983, y: -1.269989}
+  m_AnchoredPosition: {x: 2.419983, y: -1.2699928}
   m_SizeDelta: {x: 1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6869515411150479678
@@ -173,7 +173,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6886858, y: 0.17267756}
   m_AnchorMax: {x: 0.756527, y: 0.39212924}
-  m_AnchoredPosition: {x: 2.419983, y: -1.769989}
+  m_AnchoredPosition: {x: 2.419983, y: -1.7699928}
   m_SizeDelta: {x: -7, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3345363697442302599
@@ -721,7 +721,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34847307, y: 0.17267756}
   m_AnchorMax: {x: 0.41484132, y: 0.39212924}
-  m_AnchoredPosition: {x: 1.4199829, y: -2.269989}
+  m_AnchoredPosition: {x: 1.4199829, y: -2.2699928}
   m_SizeDelta: {x: -5, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4010456945792440731
@@ -995,7 +995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.59526354, y: 0.17267756}
   m_AnchorMax: {x: 0.65773654, y: 0.39212924}
-  m_AnchoredPosition: {x: -0.5800171, y: -1.769989}
+  m_AnchoredPosition: {x: -0.5800171, y: -1.7699928}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2024895405057951368
@@ -1368,6 +1368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 8290146456799217750}
   description: The balcony leading to the second floors rooms.
+  itemFoundDescription: 'Inside you find '
 --- !u!1 &7792914289099720377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,6 +1426,7 @@ MonoBehaviour:
   - {fileID: 493984360326532237}
   - {fileID: 6871062090177874837}
   - {fileID: 8361020320503729850}
+  props: []
 --- !u!1 &7792914289454602192
 GameObject:
   m_ObjectHideFlags: 0
