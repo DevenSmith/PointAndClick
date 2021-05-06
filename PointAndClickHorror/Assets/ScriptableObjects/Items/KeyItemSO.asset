@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a56d48366b8c804aa4f8d7afb745c92, type: 3}
   m_Name: KeyItemSO
   m_EditorClassIdentifier: 
-  itemID: TestKey
+  itemID: Key
   itemName: Test Key
-  description: A key made for testing
+  description: An old key not sure what it goes to.
   itemImage: {fileID: 21300000, guid: 299c6cb12d33589449458cc8d73dd68f, type: 3}

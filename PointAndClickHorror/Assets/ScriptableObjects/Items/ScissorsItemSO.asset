@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a56d48366b8c804aa4f8d7afb745c92, type: 3}
-  m_Name: GunItemSO
+  m_Name: ScissorsItemSO
   m_EditorClassIdentifier: 
-  itemID: Gun
-  itemName: Derringer
-  description: A small gun looks like its only got 1 shot left
-  itemImage: {fileID: 21300000, guid: a1cec5b215a65ef47a3cd98f5e9adbf0, type: 3}
+  itemID: Scissors
+  itemName: Scissors
+  description: A large pair of scissors.
+  itemImage: {fileID: 21300000, guid: eb6f02b71a2e8444c92687f7d0d1a202, type: 3}

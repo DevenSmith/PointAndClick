@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: Clothes
   itemName: Clothes
-  description: Some fancy clothes to make you look dignified
+  description: Some fancy clothes to make you look dignified.
   itemImage: {fileID: 21300000, guid: e2771e623bc5e0b4d92958092afa08af, type: 3}
