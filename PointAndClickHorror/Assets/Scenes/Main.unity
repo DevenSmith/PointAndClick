@@ -635,6 +635,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 806667082}
+  - component: {fileID: 806667083}
   m_Layer: 0
   m_Name: GameStateManager
   m_TagString: Untagged
@@ -656,6 +657,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &806667083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806667081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f0e42cf1f26ee4fb0c535c8247d875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: {fileID: 11400000, guid: ba9d65d776d4a904d824c3a00f2a774b, type: 2}
+  playerAquiredItemString: 'You aquired '
 --- !u!1 &914790220
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +701,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 4e67b71e50423934e8ed0045595e8732, type: 2}
+  itemToTestWith: {fileID: 0}
+  testItemPickUp: 0
+  testItemDrop: 0
 --- !u!4 &914790222
 Transform:
   m_ObjectHideFlags: 0
@@ -1585,6 +1603,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ffb538ca06dc2e345a58899406c6acb6, type: 2}
   items:
   - {fileID: 11400000, guid: 90ab32869abd09541b66d37659be9358, type: 2}
+  forceRoomReset: 0
 --- !u!4 &2064260703
 Transform:
   m_ObjectHideFlags: 0

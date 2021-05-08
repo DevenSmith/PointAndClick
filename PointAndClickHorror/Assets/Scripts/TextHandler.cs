@@ -14,7 +14,7 @@ public class TextHandler : MonoBehaviour
 	[SerializeField]
 	private string textToDisplay = "";
 
-	private List<string> textsToDisplay = new List<string>();
+	private Queue<string> textsToDisplay = new Queue<string>();
 
 	[SerializeField]
 	private bool testDisplay = false;
@@ -52,8 +52,15 @@ public class TextHandler : MonoBehaviour
 
 	public void DisplayText(string text)
 	{
-		textToDisplay = text;
-		currentDisplayRoutine = StartCoroutine(DisplayTextRoutine(text));
+		if (currentDisplayRoutine != null)
+		{
+			textsToDisplay.Enqueue(text);
+		}
+		else
+		{
+			textToDisplay = text;
+			currentDisplayRoutine = StartCoroutine(DisplayTextRoutine(text));
+		}
 	}
 
 	private IEnumerator DisplayTextRoutine(string text)
@@ -72,6 +79,11 @@ public class TextHandler : MonoBehaviour
 		}
 		currentDisplayRoutine = null;
 		yield return null;
+		if(textsToDisplay.Count > 0)
+		{
+			yield return new WaitForSeconds(2.0f);
+			DisplayText(textsToDisplay.Dequeue());
+		}
 	}
 
 	private void Update()

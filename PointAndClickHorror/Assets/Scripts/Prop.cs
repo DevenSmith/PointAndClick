@@ -10,6 +10,9 @@ public class Prop : Interactable, IContainer
 	[SerializeField]
 	private string itemFoundDescription = "Inside you find ";
 
+	private string takeItem = " Take?";
+
+	[SerializeField]
 	private ItemSO containerItem = null;
 
 	private RoomSO room;
@@ -26,6 +29,11 @@ public class Prop : Interactable, IContainer
 	{
 		base.Awake();
 		button.onClick.AddListener(OnPropClicked);
+
+		if(InventoryManager.instance.DoesInventoryContainItem(containerItem))
+		{
+			containerItem = null;
+		}
 	}
 
 	public new void OnDestroy()
@@ -54,7 +62,7 @@ public class Prop : Interactable, IContainer
 		if (containerItem != null)
 		{
 			Signals.Get<GameSignals.openConfirmDeny>().Dispatch();
-			Signals.Get<TextHandlerSignals.DisplayTextSignal>().Dispatch(itemFoundDescription + containerItem.itemName);
+			Signals.Get<TextHandlerSignals.DisplayTextSignal>().Dispatch(itemFoundDescription + " " + containerItem.itemName + takeItem);
 			SetConfirmDenyListeners();
 		}
 	}
@@ -72,9 +80,8 @@ public class Prop : Interactable, IContainer
 
 	public void TakeContainedItem()
 	{
-		ItemSO item = containerItem;
+		Signals.Get<GameStateSignals.PlayerAquiredItem>().Dispatch(containerItem);
 		containerItem = null;
-		//return item; change this to a signal when items management is implemented.
 	}
 
 	public void StoreItemInContainer(ItemSO item)

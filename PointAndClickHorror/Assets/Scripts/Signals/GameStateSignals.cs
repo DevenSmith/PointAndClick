@@ -8,6 +8,9 @@ public class GameStateSignals
 	public class SendMansionBuiltState : ASignal<bool> { };
 	public class SetMansionBuiltState : ASignal<bool> { };
 
+	public class SetPlayerRoom : ASignal<RoomSO> { };
+	public class SetButlerRoom : ASignal<RoomSO> { };
+
 	public class PlayerAquiredItem : ASignal<ItemSO> { };
 
 	public class RequestDoesPlayerHaveItem : ASignal<ItemSO> { };

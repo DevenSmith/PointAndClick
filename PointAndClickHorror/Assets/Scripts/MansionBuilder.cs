@@ -9,14 +9,32 @@ public class MansionBuilder : MonoBehaviour
 
 	public List<ItemSO> items = new List<ItemSO>();
 
+	private GameStateSO gameState = null;
+
+	[SerializeField]
+	private bool forceRoomReset = false;
+
 	public void Awake()
 	{
-		ResetRooms();
+		Signals.Get<GameStateSignals.SendGameState>().AddListener(GetGameState);
 	}
 
+	public void OnDestroy()
+	{
+		Signals.Get<GameStateSignals.SendGameState>().RemoveListener(GetGameState);
+	}
 
 	public void Start()
 	{
+		Signals.Get<GameStateSignals.RequestGameState>().Dispatch();
+		if (forceRoomReset == false && gameState != null && gameState.mansionBuilt && gameState.playerRoom != null)
+		{
+			Signals.Get<RoomSignals.LoadRoom>().Dispatch(gameState.playerRoom);
+			return;
+		}
+
+		ResetRooms();
+
 		Utilities.ShuffleList(sideRooms);
 		Utilities.ShuffleList(items);
 
@@ -43,8 +61,14 @@ public class MansionBuilder : MonoBehaviour
 				break;
 			}
 		}
-
+		Signals.Get<GameStateSignals.SetMansionBuiltState>().Dispatch(true);
 		Signals.Get<RoomSignals.LoadDefaultRoom>().Dispatch();
+	}
+
+	private void GetGameState(GameStateSO sentGameState)
+	{
+		gameState = sentGameState;
+		Signals.Get<GameStateSignals.SendGameState>().RemoveListener(GetGameState);
 	}
 
 	public void ResetRooms()

@@ -7,6 +7,9 @@ public class GameStateController : MonoBehaviour
     [SerializeField]
     private GameStateSO gameState = null;
 
+	[SerializeField]
+	private string playerAquiredItemString = "You aquired ";
+
 	public void Awake()
 	{
 		Signals.Get<GameStateSignals.PlayerAquiredItem>().AddListener(PlayerAquiredItem);
@@ -14,6 +17,8 @@ public class GameStateController : MonoBehaviour
 		Signals.Get<GameStateSignals.RequestMansionBuiltState>().AddListener(MansionStateRequested);
 		Signals.Get<GameStateSignals.RequestDoesPlayerHaveItem>().AddListener(DoesPlayerHaveItem);
 		Signals.Get<GameStateSignals.RequestGameState>().AddListener(GameStateRequested);
+		Signals.Get<GameStateSignals.SetPlayerRoom>().AddListener(SetPlayerRoom);
+		Signals.Get<GameStateSignals.SetButlerRoom>().AddListener(SetButlerRoom);
 	}
 
 	public void OnDestroy()
@@ -23,6 +28,8 @@ public class GameStateController : MonoBehaviour
 		Signals.Get<GameStateSignals.RequestMansionBuiltState>().RemoveListener(MansionStateRequested);
 		Signals.Get<GameStateSignals.RequestDoesPlayerHaveItem>().RemoveListener(DoesPlayerHaveItem);
 		Signals.Get<GameStateSignals.RequestGameState>().RemoveListener(GameStateRequested);
+		Signals.Get<GameStateSignals.SetPlayerRoom>().RemoveListener(SetPlayerRoom);
+		Signals.Get<GameStateSignals.SetButlerRoom>().RemoveListener(SetButlerRoom);
 	}
 
 	private void PlayerAquiredItem(ItemSO aquiredItem)
@@ -34,6 +41,7 @@ public class GameStateController : MonoBehaviour
 		else
 		{
 			gameState.playerInventory.Add(aquiredItem);
+			Signals.Get<TextHandlerSignals.DisplayTextSignal>().Dispatch(playerAquiredItemString + aquiredItem.itemName);
 		}
 	}
 
@@ -55,5 +63,15 @@ public class GameStateController : MonoBehaviour
 	private void MansionStateRequested()
 	{
 		Signals.Get<GameStateSignals.SendMansionBuiltState>().Dispatch(gameState.mansionBuilt);
+	}
+
+	private void SetPlayerRoom(RoomSO newPlayerRoom)
+	{
+		gameState.playerRoom = newPlayerRoom;
+	}
+
+	private void SetButlerRoom(RoomSO newButlerRoom)
+	{
+		gameState.butlerRoom = newButlerRoom;
 	}
 }

@@ -17,4 +17,9 @@ public class InventorySO: ScriptableObject
 	{
 		items.Remove(item);
 	}
+
+	public bool ContainsItem(ItemSO itemToCheck)
+	{
+		return items.Contains(itemToCheck);
+	}
 }

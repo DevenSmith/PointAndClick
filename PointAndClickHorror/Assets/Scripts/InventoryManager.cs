@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+	public static InventoryManager instance;
+
 	[SerializeField]
 	private InventorySO inventory;
 
@@ -15,6 +17,18 @@ public class InventoryManager : MonoBehaviour
 
 	[SerializeField]
 	private bool testItemDrop = false;
+
+	private void Awake()
+	{
+		if(instance == null)
+		{
+			instance = this;
+		}
+		else
+		{
+			Destroy(this);
+		}
+	}
 
 	private void Update()
 	{
@@ -29,6 +43,11 @@ public class InventoryManager : MonoBehaviour
 			testItemPickUp = false;
 			inventory.PickUpItem(itemToTestWith);
 		}
+	}
+
+	public bool DoesInventoryContainItem(ItemSO itemToCheck)
+	{
+		return inventory.ContainsItem(itemToCheck);
 	}
 
 

@@ -57,5 +57,6 @@ public class RoomLoader : MonoBehaviour
 		newRoom.roomController = roomController;
 
 		Signals.Get<TextHandlerSignals.DisplayTextSignal>().Dispatch(newRoom.roomDescription);
+		Signals.Get<GameStateSignals.SetPlayerRoom>().Dispatch(newRoom);
 	}
 }
