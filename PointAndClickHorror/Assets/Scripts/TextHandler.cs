@@ -79,6 +79,7 @@ public class TextHandler : MonoBehaviour
 		}
 		currentDisplayRoutine = null;
 		yield return null;
+
 		if(textsToDisplay.Count > 0)
 		{
 			yield return new WaitForSeconds(2.0f);

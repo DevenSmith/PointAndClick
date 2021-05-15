@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameStateSignals 
 {
@@ -18,4 +19,6 @@ public class GameStateSignals
 
 	public class RequestGameState : ASignal { };
 	public class SendGameState : ASignal<GameStateSO> { };
+
+	public class SetGameState : ASignal<Action<GameStateSO>> { };
 }

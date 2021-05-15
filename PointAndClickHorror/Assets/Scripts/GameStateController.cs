@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameStateController : MonoBehaviour
 {
+	public static GameStateController instance;
+
     [SerializeField]
     private GameStateSO gameState = null;
 
@@ -12,6 +14,15 @@ public class GameStateController : MonoBehaviour
 
 	public void Awake()
 	{
+		if(instance != null)
+		{
+			Destroy(this);
+		}
+		else
+		{
+			instance = this;
+		}
+
 		Signals.Get<GameStateSignals.PlayerAquiredItem>().AddListener(PlayerAquiredItem);
 		Signals.Get<GameStateSignals.SetMansionBuiltState>().AddListener(SetMansionBuiltState);
 		Signals.Get<GameStateSignals.RequestMansionBuiltState>().AddListener(MansionStateRequested);
@@ -19,6 +30,7 @@ public class GameStateController : MonoBehaviour
 		Signals.Get<GameStateSignals.RequestGameState>().AddListener(GameStateRequested);
 		Signals.Get<GameStateSignals.SetPlayerRoom>().AddListener(SetPlayerRoom);
 		Signals.Get<GameStateSignals.SetButlerRoom>().AddListener(SetButlerRoom);
+		Signals.Get<GameStateSignals.SetGameState>().AddListener(SetGameStateReference);
 	}
 
 	public void OnDestroy()
@@ -30,6 +42,7 @@ public class GameStateController : MonoBehaviour
 		Signals.Get<GameStateSignals.RequestGameState>().RemoveListener(GameStateRequested);
 		Signals.Get<GameStateSignals.SetPlayerRoom>().RemoveListener(SetPlayerRoom);
 		Signals.Get<GameStateSignals.SetButlerRoom>().RemoveListener(SetButlerRoom);
+		Signals.Get<GameStateSignals.SetGameState>().RemoveListener(SetGameStateReference);
 	}
 
 	private void PlayerAquiredItem(ItemSO aquiredItem)
@@ -73,5 +86,10 @@ public class GameStateController : MonoBehaviour
 	private void SetButlerRoom(RoomSO newButlerRoom)
 	{
 		gameState.butlerRoom = newButlerRoom;
+	}
+
+	private void SetGameStateReference(System.Action<GameStateSO> action)
+	{
+		action(gameState);
 	}
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Prop : Interactable, IContainer
+public class Prop : Interactable, IContainer, IGameStateReferencer
 {
 	[SerializeField]
 	private string description = "This prop needs a description!";
@@ -17,6 +17,8 @@ public class Prop : Interactable, IContainer
 
 	private RoomSO room;
 
+	private GameStateSO gameStateSO;
+
 	public RoomSO Room
 	{
 		set
@@ -30,7 +32,13 @@ public class Prop : Interactable, IContainer
 		base.Awake();
 		button.onClick.AddListener(OnPropClicked);
 
-		if(InventoryManager.instance.DoesInventoryContainItem(containerItem))
+		
+	}
+
+	public void Start()
+	{
+		Signals.Get<GameStateSignals.SetGameState>().Dispatch(SetGameState);
+		if (gameStateSO.playerInventory.Contains(containerItem))
 		{
 			containerItem = null;
 		}
@@ -93,6 +101,11 @@ public class Prop : Interactable, IContainer
 		}
 
 		containerItem = item;
+	}
+
+	public void SetGameState(GameStateSO newGameStateSO)
+	{
+		gameStateSO = newGameStateSO;
 	}
 	#endregion
 }
