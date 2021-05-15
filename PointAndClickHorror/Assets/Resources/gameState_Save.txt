@@ -1,0 +1,1 @@
+{"mansionState":true,"playerInventory":[],"playerRoomID":"Hall1ID","butlerRoomID":""}

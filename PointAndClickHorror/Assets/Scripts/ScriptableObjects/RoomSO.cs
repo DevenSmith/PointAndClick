@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "RoomSO", menuName = "ScriptableObjects/RoomSO", order = 1)]
 public class RoomSO : ScriptableObject
 {
+	public string roomID = "Set a uniqu ID";
 	public bool isAHall = false;
 	public int roomsToConnect = 0;
 	public List<RoomSO> connectedRooms = new List<RoomSO>();

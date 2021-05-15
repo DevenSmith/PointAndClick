@@ -31,10 +31,13 @@ public class GameStateController : MonoBehaviour
 		Signals.Get<GameStateSignals.SetPlayerRoom>().AddListener(SetPlayerRoom);
 		Signals.Get<GameStateSignals.SetButlerRoom>().AddListener(SetButlerRoom);
 		Signals.Get<GameStateSignals.SetGameState>().AddListener(SetGameStateReference);
+
+		gameState.LoadGameState();
 	}
 
 	public void OnDestroy()
 	{
+		gameState.SaveGameState();
 		Signals.Get<GameStateSignals.PlayerAquiredItem>().RemoveListener(PlayerAquiredItem);
 		Signals.Get<GameStateSignals.SetMansionBuiltState>().RemoveListener(SetMansionBuiltState);
 		Signals.Get<GameStateSignals.RequestMansionBuiltState>().RemoveListener(MansionStateRequested);
@@ -55,12 +58,14 @@ public class GameStateController : MonoBehaviour
 		{
 			gameState.playerInventory.Add(aquiredItem);
 			Signals.Get<TextHandlerSignals.DisplayTextSignal>().Dispatch(playerAquiredItemString + aquiredItem.itemName);
+			gameState.SaveGameState();
 		}
 	}
 
 	private void SetMansionBuiltState(bool state)
 	{
 		gameState.mansionBuilt = state;
+		gameState.SaveGameState();
 	}
 
 	private void GameStateRequested()
@@ -81,11 +86,13 @@ public class GameStateController : MonoBehaviour
 	private void SetPlayerRoom(RoomSO newPlayerRoom)
 	{
 		gameState.playerRoom = newPlayerRoom;
+		gameState.SaveGameState();
 	}
 
 	private void SetButlerRoom(RoomSO newButlerRoom)
 	{
 		gameState.butlerRoom = newButlerRoom;
+		gameState.SaveGameState();
 	}
 
 	private void SetGameStateReference(System.Action<GameStateSO> action)
