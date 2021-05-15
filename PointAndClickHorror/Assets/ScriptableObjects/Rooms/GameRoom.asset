@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cfd6f8bf1fec9a49ab29c622eaba111, type: 3}
   m_Name: GameRoom
   m_EditorClassIdentifier: 
+  roomID: GameID
   isAHall: 0
   roomsToConnect: 0
   connectedRooms:
   - {fileID: 11400000, guid: ffb538ca06dc2e345a58899406c6acb6, type: 2}
   roomPrefab: {fileID: 7792914289099720377, guid: e817928a5428679419056c37c87c9443,
     type: 3}
-  roomItem: {fileID: 0}
   roomDescription: 'The "Game Room" '
+  propItems: []
+  roomController: {fileID: 0}

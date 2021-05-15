@@ -12,10 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cfd6f8bf1fec9a49ab29c622eaba111, type: 3}
   m_Name: MainHall
   m_EditorClassIdentifier: 
+  roomID: Hall1ID
   isAHall: 0
   roomsToConnect: 6
-  connectedRooms: []
+  connectedRooms:
+  - {fileID: 11400000, guid: e4713b277dc10d64eac655b193ddedac, type: 2}
+  - {fileID: 11400000, guid: e2cd1071784f2e747acf407c5a842436, type: 2}
+  - {fileID: 11400000, guid: 5f0cd2b59701d2c4d88f823a33442c65, type: 2}
+  - {fileID: 11400000, guid: 5716d8ce351847a4aa8ed7b9470be95c, type: 2}
+  - {fileID: 11400000, guid: 70f46262aed654146b45498893192d12, type: 2}
+  - {fileID: 11400000, guid: 04b594ccceb1ceb4b94749eb5c308b00, type: 2}
   roomPrefab: {fileID: 7792914289099720377, guid: 01afae174f4dc67428ef96351981db4b,
     type: 3}
-  roomItem: {fileID: 0}
   roomDescription: 'The "Main Hall" of the mansion.  '
+  propItems: []
+  roomController: {fileID: 0}

@@ -12,10 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cfd6f8bf1fec9a49ab29c622eaba111, type: 3}
   m_Name: SecondFloorHall
   m_EditorClassIdentifier: 
+  roomID: Hall2ID
   isAHall: 0
   roomsToConnect: 6
-  connectedRooms: []
+  connectedRooms:
+  - {fileID: 11400000, guid: b6816efd51e73ac4da06d6f6ea4baf34, type: 2}
+  - {fileID: 11400000, guid: cd07595f37ddbbf47aefa8187cc996c9, type: 2}
+  - {fileID: 11400000, guid: 707a29218fd29fc4f9d6c4574623e494, type: 2}
+  - {fileID: 11400000, guid: 99958721a32693b42b21cb14b162eb7a, type: 2}
+  - {fileID: 11400000, guid: 0367e1a24d5985940b666139ab157139, type: 2}
+  - {fileID: 11400000, guid: bd3c010174a18ac4fbc7306832dacce5, type: 2}
   roomPrefab: {fileID: 7792914289099720377, guid: 4f54171bb3017a24baf6777d1053b840,
     type: 3}
-  roomItem: {fileID: 0}
   roomDescription: 'The "Second Floor" of the mansion.  '
+  propItems: []
+  roomController: {fileID: 0}

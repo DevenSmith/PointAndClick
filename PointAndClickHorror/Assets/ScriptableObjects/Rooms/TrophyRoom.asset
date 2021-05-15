@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cfd6f8bf1fec9a49ab29c622eaba111, type: 3}
   m_Name: TrophyRoom
   m_EditorClassIdentifier: 
+  roomID: TrophyID
   isAHall: 0
   roomsToConnect: 0
   connectedRooms:
   - {fileID: 11400000, guid: ffb538ca06dc2e345a58899406c6acb6, type: 2}
   roomPrefab: {fileID: 7792914289099720377, guid: 6360272a810ea4e42b5dd7a7b52ee1f7,
     type: 3}
-  roomItem: {fileID: 0}
   roomDescription: 'The "Trophy Room" '
+  propItems: []
+  roomController: {fileID: 0}

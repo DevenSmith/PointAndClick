@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cfd6f8bf1fec9a49ab29c622eaba111, type: 3}
   m_Name: MasterBedroom
   m_EditorClassIdentifier: 
+  roomID: MBedID
   isAHall: 0
   roomsToConnect: 0
   connectedRooms:
   - {fileID: 11400000, guid: ffb538ca06dc2e345a58899406c6acb6, type: 2}
   roomPrefab: {fileID: 7792914289099720377, guid: d08354e5754f47e478ae14f13a518a44,
     type: 3}
-  roomItem: {fileID: 0}
   roomDescription: 'The "Master Bedroom" '
+  propItems: []
+  roomController: {fileID: 0}
